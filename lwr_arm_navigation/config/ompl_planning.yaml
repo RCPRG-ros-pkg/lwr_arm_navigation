@@ -1,0 +1,52 @@
+planner_configs:
+  SBLkConfig1:
+    type: kinematic::SBL
+  LBKPIECEkConfig1:
+    type: kinematic::LBKPIECE
+groups:
+  - lwr_arm
+  - lwr_arm_cartesian
+lwr_arm:
+  planner_type: JointPlanner
+  planner_configs:
+    - SBLkConfig1
+    - LBKPIECEkConfig1
+  projection_evaluator: joint_state
+lwr_arm_cartesian:
+  parent_frame: calib_lwr_arm_base_link
+  physical_group: lwr_arm
+  planner_type: RPYIKTaskSpacePlanner
+  state_spaces:
+    - x
+    - y
+    - z
+    - roll
+    - pitch
+    - yaw
+    - lwr_arm_2_joint
+  x:
+    type: Linear
+    min: -2.0
+    max: 2.0
+  y:
+    type: Linear
+    min: -2.0
+    max: 2.0
+  z:
+    type: Linear
+    min: -2.0
+    max: 2.0
+  roll:
+    type: Revolute
+  pitch:
+    type: Revolute
+  yaw:
+    type: Revolute
+  planner_configs:
+    - SBLkConfig1
+    - LBKPIECEkConfig1
+  kinematics_solver: lwr_arm_kinematics/IKFastKinematicsPlugin
+  tip_name: lwr_arm_7_link
+  root_name: calib_lwr_arm_base_link
+  projection_evaluator: joint_state
+  longest_valid_segment_fraction: 0.001

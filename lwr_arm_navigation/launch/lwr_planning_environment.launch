@@ -1,0 +1,4 @@
+<launch>
+    <param name="robot_description" textfile="$(find lwr_defs)/robots/kuka_lwr_arm.urdf.xml.test" />
+    <rosparam command="load" ns="robot_description_planning" file="$(find lwr_arm_navigation)/config/lwr_planning_description.yaml" />
+</launch>

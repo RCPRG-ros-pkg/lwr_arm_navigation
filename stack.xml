@@ -1,0 +1,10 @@
+<stack>
+  <description brief="lwr_arm_navigation">lwr_arm_navigation</description>
+  <author>Maintained by Konrad Banachowicz</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/lwr_arm_navigation</url>
+  <depend stack="arm_navigation" /> <!-- move_arm, trajectory_filter_server, planning_environment, constraint_aware_spline_smoother, arm_kinematics_constraint_aware, ompl_ros_interface -->
+  <depend stack="ros" />
+
+</stack>

@@ -1,0 +1,9 @@
+<launch>
+    <include file="$(find lwr_arm_navigation)/launch/lwr_planning_environment.launch" />
+    <node pkg="arm_kinematics_constraint_aware" type="arm_kinematics_constraint_aware" name="lwr_lwr_arm_kinematics">
+        <param name="group" type="string" value="lwr_arm" />
+        <param name="lwr_arm/root_name" type="string" value="calib_lwr_arm_base_link" />
+        <param name="lwr_arm/tip_name" type="string" value="lwr_arm_7_link" />
+        <param name="kinematics_solver" type="string" value="lwr_arm_kinematics/IKFastKinematicsPlugin" />
+    </node>
+</launch>
